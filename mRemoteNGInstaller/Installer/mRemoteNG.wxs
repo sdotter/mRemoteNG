@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <?include $(sys.CURRENTDIR)Includes\Config.wxi?>
-  <Product Name="$(var.ProductNameWithPlatform)" Manufacturer="Next Generation Software"
+  <Product Name="$(var.ProductNameWithPlatform)" Manufacturer="Profi-Kom Ltd."
            Version="$(var.ProductVersion)"
            Id="$(var.ProductCode)" 
            UpgradeCode="$(var.UpgradeCode)" 
@@ -12,7 +12,7 @@
     <Binary Id="CustomActions.CA.dll" SourceFile="$(var.SolutionDir)mRemoteNGInstaller\CustomActions\bin\x64\$(var.Configuration)\CustomActions.CA.dll" />
     <Property Id="MsiLogging" Value="v" />
     <Property Id="ARPPRODUCTICON" Value="AppIcon.ico" />
-    <Property Id="ARPHELPLINK" Value="http://www.mremoteng.org" />
+    <Property Id="ARPHELPLINK" Value="http://mremoteng.org" />
     <SetProperty Id="ARPINSTALLLOCATION" Value="[INSTALLDIR]" After="CostFinalize" />
     <Property Id="MAINEXE" Value="$(var.ExeProcessName)" />
     <Property Id="INSTALLDIR">

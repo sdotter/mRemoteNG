@@ -36,7 +36,7 @@ namespace mRemoteNG.Connection.Protocol.RDP
          */
 
         private MsRdpClient6NotSafeForScripting _rdpClient; // lowest version supported
-        protected virtual RdpVersion RdpProtocolVersion => RDP.RdpVersion.Rdc6;
+        protected virtual RdpVersion RdpProtocolVersion => RDP.RdpVersion.Rdc12;
         protected ConnectionInfo connectionInfo;
         protected Version RdpVersion;
         private readonly DisplayProperties _displayProperties;

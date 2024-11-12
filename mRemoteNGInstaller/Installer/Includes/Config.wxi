@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
   <?define ProductName = "mRemoteNG" ?>
-  <?define Company = "Next Generation Software" ?>
+  <?define Company = "Profi-Kom Ltd." ?>
   <?define UpgradeCode = "dd678a54-ca75-4791-8dfe-d818095684f8" ?>
   <?define ProductCode = "*" ?>
   <?define ProductVersion = "!(bind.FileVersion.MainExeFile)" ?>
