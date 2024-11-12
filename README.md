@@ -43,6 +43,9 @@
   <a href='https://mremoteng.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/mremoteng/badge/?version=latest' alt='Documentation Status' />
   </a>
+  <a href="https://gurubase.io/g/mremoteng">
+    <img alt="Gurubase" src="https://img.shields.io/badge/Gurubase-Ask%20mRemoteNG%20Guru-006BFF?style=flat-square">
+  </a>
 </p>
 
 ---
