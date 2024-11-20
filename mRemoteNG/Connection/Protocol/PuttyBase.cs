@@ -15,6 +15,8 @@ using System.Linq;
 using System.Runtime.Versioning;
 using System.Threading;
 using System.Windows.Forms;
+using WindowsInput;
+using WindowsInput.Native;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 // ReSharper disable ArrangeAccessorOwnerBody
@@ -272,14 +274,18 @@ namespace mRemoteNG.Connection.Protocol
                 Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, string.Format(Language.PuttyTitle, PuttyProcess.MainWindowTitle), true);
                 Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, string.Format(Language.PanelHandle, InterfaceControl.Parent.Handle), true);
 
+                Resize(this, new EventArgs());
+
                 if (!string.IsNullOrEmpty(InterfaceControl.Info?.OpeningCommand))
                 {
                     NativeMethods.SetForegroundWindow(PuttyHandle);
-                    string finalCommand = InterfaceControl.Info.OpeningCommand.TrimEnd() + "\n";
-                    SendKeys.SendWait(finalCommand);
+                    string finalCommand = InterfaceControl.Info.OpeningCommand.TrimEnd();
+                    InputSimulator iSim = new InputSimulator();
+                    iSim.Keyboard.TextEntry(finalCommand);
+                    Thread.Sleep(1000);
+                    iSim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
                 }
-
-                Resize(this, new EventArgs());
+                
                 base.Connect();
                 return true;
             }

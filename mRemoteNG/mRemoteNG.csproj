@@ -94,6 +94,7 @@
     <PackageReference Include="Cucumber.Messages" Version="27.0.0" />
     <PackageReference Include="DockPanelSuite" Version="3.1.1" />
     <PackageReference Include="DockPanelSuite.ThemeVS2015" Version="3.1.1" />
+    <PackageReference Include="InputSimulator" Version="1.0.4" />
     <PackageReference Include="LiteDB" Version="5.0.21" />
     <PackageReference Include="log4net" Version="3.0.3" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
