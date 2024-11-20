@@ -86,14 +86,17 @@ namespace mRemoteNG.App
 
             _frmSplashScreen = FrmSplashScreenNew.GetInstance();
 
-            Screen targetScreen = Screen.PrimaryScreen;
+            Screen currentMonitor = Screen.FromHandle(new System.Windows.Interop.WindowInteropHelper(_frmSplashScreen).Handle);
 
-            Rectangle viewport = targetScreen.WorkingArea;
-            _frmSplashScreen.Top = viewport.Top;
-            _frmSplashScreen.Left = viewport.Left;
-            // normally it should be screens[1] however due DPI apply 1 size "same" as default with 100%
-            _frmSplashScreen.Left = viewport.Left + (targetScreen.Bounds.Size.Width - _frmSplashScreen.Width) / 2;
-            _frmSplashScreen.Top = viewport.Top + (targetScreen.Bounds.Size.Height - _frmSplashScreen.Height) / 2;
+            System.Windows.PresentationSource source = System.Windows.PresentationSource.FromVisual(_frmSplashScreen);
+            double dpiScaling = (source != null && source.CompositionTarget != null ? source.CompositionTarget.TransformFromDevice.M11 : 1);
+
+            Rectangle workArea = currentMonitor.WorkingArea;
+            var workAreaWidth = (int)Math.Floor(workArea.Width * dpiScaling);
+            var workAreaHeight = (int)Math.Floor(workArea.Height * dpiScaling);
+
+            _frmSplashScreen.Left = (((workAreaWidth - (_frmSplashScreen.Width * dpiScaling)) / 2) + (workArea.Left * dpiScaling));
+            _frmSplashScreen.Top = (((workAreaHeight - (_frmSplashScreen.Height * dpiScaling)) / 2) + (workArea.Top * dpiScaling));
             _frmSplashScreen.ShowInTaskbar = false;
             _frmSplashScreen.Show();
 

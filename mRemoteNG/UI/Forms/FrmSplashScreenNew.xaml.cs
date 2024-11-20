@@ -8,7 +8,7 @@ namespace mRemoteNG.UI.Forms
     /// <summary>
     /// Interaction logic for FrmSplashScreenNew.xaml
     /// </summary>
-    public partial class FrmSplashScreenNew
+    public partial class FrmSplashScreenNew : System.Windows.Window
     {
         static FrmSplashScreenNew instance = null;
         public FrmSplashScreenNew()
